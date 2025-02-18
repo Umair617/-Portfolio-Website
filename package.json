@@ -1,1 +1,1 @@
-{ "name": "my-project", "version": "1.0.0", "main": "index.js", "scripts": { "start": "node index.js" }, "dependencies": {} }
+{"name":"my-project","version":"1.0.0","main":"index.js","scripts":{"start":"node index.js"},"devDependencies":{"stylelint":"^16.14.1","stylelint-config-standard":"^37.0.0"}}
