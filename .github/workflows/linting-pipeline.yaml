@@ -1,0 +1,33 @@
+name: Linting Pipeline
+
+on:
+  push:
+    branches:
+      - develop  # ✅ Triggers on push to "develop" branch
+  pull_request:
+    branches:
+      - develop  # ✅ Triggers on PRs to "develop" branch
+
+jobs:
+  lint:
+    name: Run Linters
+    runs-on: ubuntu-latest  # ✅ Uses Ubuntu runner
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 18
+
+      - name: Install Dependencies
+        run: |
+          npm install htmlhint stylelint stylelint-config-standard --save-dev  # ✅ Installs as dev dependencies
+
+      - name: Run HTMLHint
+        run: npx htmlhint "**/*.html"  # ✅ Lints all HTML files
+
+      - name: Run Stylelint
+        run: npx stylelint "**/*.css"  # ✅ Lints all CSS files
